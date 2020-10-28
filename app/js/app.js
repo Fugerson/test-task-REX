@@ -26,6 +26,9 @@ let cart = document.querySelector('.constructor__add-button');
 
 //total
 let totalPopup = document.querySelector('.popupDetaols__bottom-total>span');
+let totalHeadTop = document.querySelector('.total-header__prise>span');
+let calcItems = document.querySelector('.header__ring-text');
+let currentValue = document.querySelector('.constructor__current-value');
 
 
 body.addEventListener('click', function(e){
@@ -175,9 +178,18 @@ choicepopupLarge.addEventListener('click', function(e){
             return
         }
        
+        calcItems.textContent = +calcItems.textContent + 1
+
+
+
+       
+        currentValue.textContent = +currentValue.textContent + +sizeCost;
+
         totalPopup.textContent = +totalPopup.textContent + +sizeCost;
 
-        Math.floor(totalPopup.textContent)
+        let p = +totalHeadTop.innerHTML + +sizeCost;
+        totalHeadTop.innerHTML = String(p);
+
         
 
         popupHeadBoxItams.innerHTML += `
@@ -216,8 +228,12 @@ function closePopupHead(event){
 // item pop head
 
 function removeItemSeen(e){
+
+    calcItems.textContent = +calcItems.textContent - 1
+
+    currentValue.textContent = +currentValue.textContent - +e.path[2].childNodes[3].childNodes[5].innerHTML;
     totalPopup.textContent = +totalPopup.textContent - +e.path[2].childNodes[3].childNodes[5].innerHTML;
-    Math.floor(totalPopup.textContent);
+    totalHeadTop.innerHTML = +totalHeadTop.innerHTML - +e.path[2].childNodes[3].childNodes[5].innerHTML;
 
     e.path[2].remove()
 }
