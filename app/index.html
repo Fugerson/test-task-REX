@@ -17,17 +17,45 @@
                             <img src="images/dest/calc.png" alt="">
                         </div>
                         <div class="top-header__ring">
-                            <div class="header__ring-text">3</div>
+                            <div class="header__ring-text">0</div>
                         </div>
                     </div>
                     <div class="top-header__total  item__menu-top">
                         <div class="total-header__title">TOTAL :</div>
                         <div class="total-header__prise">0€</div>
                     </div>
-                    <div class="top-header__details item__menu-top">
-                        <div class="datails-header__title">DETAOLS</div>
-                        <div class="datails-header__icon">
-                            <img src="images/dest/arreyHeader.png">
+                    <div class="details-popap">
+                        <div class="top-header__details item__menu-top">
+                            <button onclick="showPopupHead(event)" class="datails-header__title">DETAOLS 
+                                <img class="datails-header__icon" src="images/dest/arreyHeader.png">
+                            </button>
+                        </div>
+                        <div class="popupDetaols">
+                            <div class="popupDetaols__close-button">
+                                <button onclick="closePopupHead()"><img src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/></button>
+                            </div>
+                            <div class="popupDetaols__box">
+                                <div class="popupDetaols__top-img">
+                                    <div class="popupDetaols__top-imgItem">
+                                        <img src="/images/dest/constructor_lineImg-soydean-Grey.png" alt="">
+                                    </div>
+                                    <div class="popupDetaols__top-imgItem">
+                                        <img src="/images/dest/constructor_lineImg-sesame-Grey.png" alt="">
+                                    </div>
+                                    <div class="popupDetaols__top-imgItem">
+                                        <img src="/images/dest/constructor_lineImg-wheat-Grey.png" alt="">
+                                    </div>
+                                    <div class="popupDetaols__top-imgItem">
+                                        <img src="/images/dest/constructor_lineImg-corn-Grey.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="popupDetaols__flex">
+                                </div>
+                                <div class="popupDetaols__bottom-box">
+                                    <div class="popupDetaols__bottom-total">TOTAL:<span>0</span>€</div>
+                                    <button class="popupDetaols__bottom-button">CHECKOUT</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +118,7 @@
                 <div class="about__cracker-image">
                     <div class="about__img-in"></div>
                 </div>
-                <div class="about__box">
+                <!-- <div class="about__box">
                     <h2 class="about__title">ABOUT CRACKER</h2>
                     <div class="about__box-text">
                         <article class="about__text">Lorem ipsum dolor sit amet consectetur 
@@ -106,13 +134,13 @@
                         </a>
                     </div>
 
-                </div>
+                </div> -->
             </div>
             <div class="constructor">
                 <div class="container container__constructor">
                     <h2 class="constructor__title">Cracker constructor</h2>
                     <div class="constructor__value">
-                        <span>current value:	143 €</span>
+                        <p>current value:	<span>0</span> €</p>
                     </div>
                     <div class="constructor__products-box">
                         <div class="constructor__product soydean">
@@ -121,9 +149,9 @@
                                     <img src="/images/dest/constructor_lineImg-soydean.png" alt="">
                                 </div>
                                 <div class="constructor__line">
-                                    <input type="range" min="0" max="100" value="0">
+                                    <input oninput="chengeValSoydean(event)" type="range" step="10" min="0" max="100" value="0">
                                 </div>
-                                <div class="constructor__percent"><span>0</span>%</div>
+                                <div class="constructor__percent"><span class="constructor__percent-soydean">0</span>%</div>
                             </div>
                         </div>
                         <div class="constructor__product sesame">
@@ -132,9 +160,9 @@
                                     <img src="/images/dest/constructor_lineImg-sesame.png" alt="">
                                 </div>
                                 <div class="constructor__line">
-                                    <input type="range" min="0" max="100" value="0">
+                                    <input  oninput="chengeValSesame(event)" type="range" step="10" min="0" max="100" value="0">
                                 </div>
-                                <div class="constructor__percent"><span>0</span>%</div>
+                                <div class="constructor__percent"><span class="constructor__percent-sesame">0</span>%</div>
                             </div>
                         </div>
                         <div class="constructor__product wheat">
@@ -143,9 +171,9 @@
                                     <img src="/images/dest/constructor_lineImg-wheat.png" alt="">
                                 </div>
                                 <div class="constructor__line">
-                                    <input type="range" min="0" max="100" value="0">
+                                    <input oninput="chengeValWheat(event)" type="range" step="10" min="0" max="100" value="0">
                                 </div>
-                                <div class="constructor__percent"><span>0</span>%</div>
+                                <div class="constructor__percent"><span class="constructor__percent-wheat">0</span>%</div>
                             </div>
                         </div>
                         <div class="constructor__product corn">
@@ -154,27 +182,44 @@
                                     <img src="/images/dest/constructor_lineImg-corn.png" alt="">
                                 </div>
                                 <div class="constructor__line">
-                                    <input type="range" min="0" max="100" value="0">
+                                    <input oninput="chengeValCorn(event)" class="constructor__input-corn" type="range" step="10" min="0" max="100" value="100">
                                 </div>
-                                <div class="constructor__percent"><span>0</span>%</div>
+                                <div class="constructor__percent"><span  class="constructor__percent-corn">100</span>%</div>
                             </div>
                         </div>
                         <div class="constructor__choise-box">
-                            <div class="constructor__img">
-                                <img src="/images/dest/constructor_lineImg-pacage.png" alt="">
-                            </div>
-                            <div class="constructor__choose-button">
-                                <a href="#" >
-                                    <span>CHOOSE YOUR PACK</span>
-                                    <div class="choose-img">
-                                        <img src="/images/dest/constructor-arrey.png" alt="">
+                            <div class="constructor__flex-box">
+                                <div class="constructor__img">
+                                    <img src="/images/dest/constructor_lineImg-pacage.png" alt="">
+                                </div>
+                                <div class="constructor__choose-button">
+                                    <button href="#" id="show-popup">
+                                        <span class="choose__button-span">CHOOSE YOUR PACK</span>
+                                        <div class="choose-img">
+                                            <img src="/images/dest/constructor-arrey.png" alt="">
+                                        </div>
+                                    </button>
+                                    <div class="choicepopup">
+                                        <div class="choicepopup__chose">
+                                            <span>CHOOSE YOUR PACK</span>
+                                        </div>
+                                        <div class="choicepopup__button choicepopup__small">
+                                            <button>SMALL PACK</button>
+                                        </div>
+                                        <div class="choicepopup__button choicepopup__medium">
+                                            <button>MEDIUM PACK</button>
+                                        </div>
+                                        <div class="choicepopup__button choicepopup__large">
+                                            <button>LARGE PACK</button>
+                                        </div>
                                     </div>
-                                </a>
+                                </div>
                             </div>
+
                         </div>
                     </div>
-                    <div class="constructor__add-button">
-                        <button>+</button>
+                    <div class="constructor__add">
+                        <button class="constructor__add-button">+</button>
                     </div>
                 </div>
             </div>
@@ -195,7 +240,7 @@
                 <div class="footer__center">
                     <a href="#">
                         <div class="footer__img-plus">
-                            <img src="./images/dest/addres.png" alt="share us">
+                            <img src="./images/dest/addres.png" alt="address">
                         </div>
                         <span>ADDRESS</span>
                     </a>
@@ -205,11 +250,12 @@
                         Germany</p>
                 </div>
                 <div class="footer__right">
-                    <div class="footer__img-plus">
-                        <a href="#">
-                            <img src="./images/dest/share.png" alt="share us"> <span>SHARE US</span>
-                        </a>
-                    </div>
+                    <a href="#">
+                        <div class="footer__img-plus">
+                                <img src="./images/dest/share.png" alt="share us">
+                        </div>
+                        <span>SHARE US</span>
+                    </a>
                     <div class="footer__right-links">
                         <div class="footer__right-linkBox">
                             <div class="footer__right-link">
@@ -246,6 +292,6 @@
             </div>
         </div>
     </footer>
-    <script src="js\app.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 </html>
