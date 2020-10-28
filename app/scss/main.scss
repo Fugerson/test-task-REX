@@ -18,23 +18,16 @@ a{
 li{
     list-style-type: none
 }
-img{
-    // width: 100%;
-    // height: 100%;
-}
 
 .header {
 
     &__bottom-head{
         position: absolute;
-        // top: 67px;
         left: 0;
         z-index: 1;
         right: 0;
         background-color: RGB(0,0,0,.5);
-
-    }    
-
+    }
 
     &__container {
         display: flex;
@@ -50,7 +43,6 @@ img{
         align-items: center;
     }
     &__top {
-
         background-color: RGB(000, 000, 000, 0.77);
 
         .item__menu-top{
@@ -60,15 +52,13 @@ img{
             font-family: 'Lato', sans-serif;
             font-size: 14px;
             cursor: pointer;
-            height: 17px;  /* не в % */
+            height: 17px;  
             line-height: 17px;
         }
-        
         &__icon {
             width: 25px;
             height: 30px;
             cursor: pointer;
-            
         }
         .top-header__ring{
             width: 20px;
@@ -80,29 +70,15 @@ img{
             left: -10px;
             color: wheat;
             text-align: center;
-            
-
+        
             .header__ring-text{
                 margin-left: -2px;
             }
-
-        }
-    
-        &__total {
-            
-        }
-    
-        &__details {
         }
     }
-
     &__bottom {
         display: flex;
         justify-content: space-between;
-    }
-    .header__bottom-logo{
-        // width: 120px;
-        // height: 60px;
     }
 }
 @media screen and (max-width: 500px) {
@@ -131,12 +107,11 @@ img{
     margin-top: 70px;
     position: absolute;
     z-index: 2;
-    right: 0;
+    right: 5px;
     background: white;
     padding: 20px;
     color: black;
     width: 500px;
-    // margin-right: 200px;    
     flex-direction: column;
     font-family: 'Lato', sans-serif;
 
@@ -160,7 +135,6 @@ img{
                 height: 30px;
                 width: 30px;
             }
-
         }
         button:hover{
             transition: .8s;
@@ -171,7 +145,6 @@ img{
             -ms-transform-origin: center;
             transform-origin: center;
 
-
             -o-transform: rotate(90deg);
             -ms-transform: rotate(90deg);
             -moz-transform: rotate(90deg);
@@ -179,10 +152,6 @@ img{
             transform: rotate(90deg);
         }
     }
-
-    &__box {
-    }
-
     &__top-img {
         display: flex;
         margin-left: 66px;
@@ -196,7 +165,6 @@ img{
         font-weight: bold;
 
         span{
-            // margin: 0 10px;
             font-weight: 100;
         }
     }
@@ -220,59 +188,28 @@ img{
         justify-content: space-evenly;
         align-items: center;
         width: 60%;
-
-        span{
-
-
-        }
     }
     &__item-pre{
-        // margin-left: 15px;
         color: #ff4200;
         font-size: 18px;
-
     }
-    &__flex {
-        // display: flex;
-    }
-
     &__item {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
-    &__item-img {
-    }
-
-    &__item-perSoydean {
-    }
-
-    &__item-perSesame {
-    }
-
-    &__item-perWheat {
-    }
-
-    &__item-perCorn {
-    }
-
     &__item-weight {
         margin-left: 20px;
         font-weight: bold;
-        font-size: 14px;
+        font-size: 20px;
         color: #666666;
     }
-
     &__item-cost {
         color: #666666;
-        font-size: 14px;
+        font-size: 20px;
         margin-left: 50px !important;
-
     }
-
     &__item-button {
-
         button{
             outline: none;
             margin: 4px;
@@ -286,14 +223,12 @@ img{
             }
         }
     }
-
     &__bottom-box {
         display: flex;
         justify-content: space-between;
         margin: 20px 30px 0 0;
         align-items: center;
     }
-
     &__bottom-total {
         font-weight: bold;
         font-size: 18px;
@@ -303,7 +238,6 @@ img{
             margin: 0 5px 0 10px;
         }
     }
-
     &__bottom-button {
         outline: none;
         border: none;
@@ -320,10 +254,52 @@ img{
         color: #ff4200;
     }
 }
+@media screen and (max-width: 550px) {
+    .popupDetaols {
+        right: 0px;
+        padding: 5px;
+        width: 280px;
+        &__top-img {
+            margin-left: 24px;
+        }
+        &__item-span{
 
+            span{
+                font-size: 14px;
+            }
+        }
+        &__item-image{
+            margin: 0px;
+        }
+        &__top-imgItem{
+            margin: 0px;
+        }
 
-
-
+        &__item-weight {
+            margin-left: 5px;
+            font-size: 14px;
+        }
+        &__item-cost {
+            font-size: 14px;
+            margin-left: 5px !important;
+        }
+        &__item-button {
+    
+            button{
+                outline: none;
+                margin: 4px;
+                width: 30px;
+                height: 30px;
+                border-radius: 20px;
+    
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
 
 .total-header {
     height: 50px;
@@ -331,14 +307,12 @@ img{
     &__title {
         font-weight: 700;
     }
-
     &__prise {
         padding-left: 25px;
         font-size: 18px;
     }
 }
 .datails-header {
-
 
     &__title {
         cursor: pointer;
@@ -370,18 +344,15 @@ img{
 }
 .bottom-header {
 
-
     &__menu {
         font-size: 18px;
     }
     &__burger-box{
         margin: 10px 20px;
-
     }
     &__menu-burger{
 
     }
-
     &__list {
         padding: 0px;
         display: flex;
@@ -522,8 +493,7 @@ img{
     }
 }
 
-
-//center
+//section-Center
 .section-Center {
 
 }
@@ -534,15 +504,16 @@ img{
     right: 0;
     z-index: -1;
     width: auto;
-    height: 100%;
+    height: 1600px;
 
     background: url('../images/dest/center.jpg') no-repeat center/cover;
+    background-size: 100%;
+
     -webkit-filter: opacity(30%);
     -moz-filter: opacity(30%);
     -o-filter: opacity(30%);
     -ms-filter: opacity(30%);
     filter: opacity(30%);
-
 }
 .about {
 
@@ -565,7 +536,6 @@ img{
                 }
             }
         }
-
         &__cracker-image{
             position: relative;
             z-index: 0;
@@ -574,8 +544,6 @@ img{
            flex-shrink: 0;
             width: 370px;
             height: 370px;
-
-
 
             .about__img-in{
                 width: 100%;
@@ -610,7 +578,6 @@ img{
             z-index: 2;
             padding:0 10px 15px 0;
 
-
             .about__text{
                 line-height: 25px;
                 text-indent: 25px;
@@ -631,9 +598,6 @@ img{
             content: '';
             z-index: -1;
 		}
-		&__text {
-		}
-
 		&__logo {
 
             a{
@@ -698,7 +662,6 @@ img{
             }
         }
     }
-
     &__title {
         font-size: 48px;
         color: #333333;
@@ -735,7 +698,6 @@ img{
             cursor: pointer;
             background-color: wheat;
             }
-
     }
     .soydean{
         
@@ -791,13 +753,6 @@ img{
         width: 60px;
         height: 60px;
     }
-
-    &__line {
-    }
-
-    &__line-point {
-    }
-
     &__percent {
         font-family: 'Lato', sans-serif;
         color: #0d0c0c;
@@ -821,7 +776,7 @@ img{
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            width: 300px;
+            width: 370px;
             height: 60px;
             border: 1px solid #ff4200;
             border-radius: 30px;
@@ -864,18 +819,9 @@ img{
         button:hover{
             transition: .2s;
             width: 260px;
-
-
-
         }
     }
 }
-.container {
-
-    &__constructor {
-    }
-}
-
 //choicepopup
 
 .choicepopup {
@@ -929,15 +875,6 @@ img{
         border-top: 1px solid #ff4200;
         border-bottom: 1px solid #ff4200;
     }
-
-    &__small {
-    }
-
-    &__medium {
-    }
-
-    &__large {
-    }
 }
 
 //footer
@@ -964,8 +901,6 @@ img{
             align-self: center;
         }
     }
-
-
     &__box {
         padding-top: 60px;
         display: flex;
@@ -993,13 +928,10 @@ img{
     }
 
     &__img-plus {
-        // width: 45px;
-        // height: 45px;
-    }
 
+    }
     &__center {
         margin: 10px;
-        // margin: 0 100px;
 
         a{
             display: flex;
@@ -1030,7 +962,6 @@ img{
             span{
                 margin-left: 15px;
                 padding: 0;
-                // margin: 0;
             }
         }
 
@@ -1063,20 +994,7 @@ img{
                 width: 100%;
                 height: 100%;
             }
-
-            img{
-                // min-width: 23px;
-                // min-height: 31px;
-            }
         }
     }
-
-    &__right-links {
-    }
-
-    &__right-link {
-    }
-}
-.container {
 }
 

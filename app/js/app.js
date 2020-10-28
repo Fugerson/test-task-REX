@@ -36,7 +36,6 @@ let burgerMenu = document.querySelector('.bottom-header__menu');
 
 
 body.addEventListener('click', function(e){
-
     if(e.target == document.querySelector('.choicepopup')){
         return
     }
@@ -46,20 +45,20 @@ body.addEventListener('click', function(e){
 }, true)
 
 // menu burger
-function showMenuBurger(e){
+function showMenuBurger(){
     burgerMenu.style.display = "block"
 }
 
 
 //constructor
-let Soydean = 0 
+let Soydean = 0,
 Sesame = 0,
 Wheat = 0,
 Corn = 0,
 a = 0,
 b = 0,
 c = 0,
-w = 0,
+w = 0;
 
 function chengeValSoydean(e){ 
     Soydean = +e.target.value
@@ -128,6 +127,8 @@ let checkAddSize = false,
     sizeValue = "",
     sizeCost = ""
 
+//change pack
+
 choicepopupSmall.addEventListener('click', function(e){
         sizeValue = '1'
         sizeCost = '1.5'
@@ -165,7 +166,7 @@ choicepopupLarge.addEventListener('click', function(e){
 
 
 
-
+//add item
     cart.addEventListener('mouseenter', function(e){
     e.target.innerHTML = 'ADD TO CART'
     })
@@ -175,16 +176,12 @@ choicepopupLarge.addEventListener('click', function(e){
     })
     
     cart.addEventListener('click', function(e){
-2
         if(checkAddSize == false){
             return
         }
        
         calcItems.textContent = +calcItems.textContent + 1
 
-
-
-       
         currentValue.textContent = +currentValue.textContent + +sizeCost;
 
         totalPopup.textContent = +totalPopup.textContent + +sizeCost;
@@ -227,7 +224,7 @@ function closePopupHead(event){
     popupHead.style.display = "none";
 }
 
-// item pop head
+// popup item head
 
 function removeItemSeen(e){
 
