@@ -1,4 +1,4 @@
-
+//body
 let body = document.querySelector('body')
 
 // popup top haed
@@ -30,25 +30,36 @@ let totalHeadTop = document.querySelector('.total-header__prise>span');
 let calcItems = document.querySelector('.header__ring-text');
 let currentValue = document.querySelector('.constructor__current-value');
 
+// burger menu
+let burgerMenu = document.querySelector('.bottom-header__menu');
+
+
 
 body.addEventListener('click', function(e){
+
     if(e.target == document.querySelector('.choicepopup')){
         return
     }
 
     popup.style.display = "none"
+    burgerMenu.style.display = "none"
 }, true)
 
+// menu burger
+function showMenuBurger(e){
+    burgerMenu.style.display = "block"
+}
 
-let Soydean = 0
-let Sesame = 0
-let Wheat = 0
-let Corn = 0
-let a = 0
-let b = 0
-let c = 0
-let w = 0
 
+//constructor
+let Soydean = 0 
+Sesame = 0,
+Wheat = 0,
+Corn = 0,
+a = 0,
+b = 0,
+c = 0,
+w = 0,
 
 function chengeValSoydean(e){ 
     Soydean = +e.target.value
@@ -81,7 +92,6 @@ function chengeValWheat(e){
     Wheat = +e.target.value
 
     if(+Soydean + +Sesame + +Wheat <= 100){
-
     perWheat.innerHTML = e.target.value
     c = e.target.value
     alignValue(e.target.value)
@@ -91,7 +101,6 @@ function chengeValWheat(e){
     }
 }
 
-
 function chengeValCorn(e){
     Corn = +e.target.value
     inputCorn.value = +e.target.value
@@ -99,27 +108,20 @@ function chengeValCorn(e){
     alignValue(e.target.value)
 }
 
-
 function alignValue(){
 
     ollSeed = Soydean + Sesame + Wheat
-
     const fullValue = 100;
 
     if(+ollSeed <= fullValue){
-        // perCorn.innerHTML = fullValue - ollSeed
-
         perCorn.innerHTML = fullValue - ollSeed
         inputCorn.value = fullValue - ollSeed
     }
-
-
 }
 
 
 choose.addEventListener('click', function(e){
     popup.style.display = "flex"
-
 })
 
 let checkAddSize = false,
@@ -128,7 +130,7 @@ let checkAddSize = false,
 
 choicepopupSmall.addEventListener('click', function(e){
         sizeValue = '1'
-        sizeCost = '1.99'
+        sizeCost = '1.5'
          checkAddSize = true
 
         chooseButtonSpan.innerHTML = e.path[0].innerHTML
@@ -173,7 +175,7 @@ choicepopupLarge.addEventListener('click', function(e){
     })
     
     cart.addEventListener('click', function(e){
-
+2
         if(checkAddSize == false){
             return
         }
@@ -237,5 +239,3 @@ function removeItemSeen(e){
 
     e.path[2].remove()
 }
-
-

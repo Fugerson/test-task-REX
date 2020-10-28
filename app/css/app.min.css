@@ -246,20 +246,38 @@ li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between
+}
+@media screen and (max-width:500px) {
+  .item__menu-top {
+    margin: 25px 10px!important
+  }
+  .taste .taste__button {
+    text-align: center
+  }
+  .about .about__title {
+    letter-spacing: 10px;
+    padding: 34px 10px 25px 0;
+    color: #666;
+    margin: 0;
+    font-size: 35px
+  }
+  .about__box-text .about__text {
+    font-size: 14px!important
+  }
 }
 .popupDetaols {
   display: none;
   margin-top: 70px;
   position: absolute;
   z-index: 2;
+  right: 0;
   background: #fff;
   padding: 20px;
   color: #000;
   width: 500px;
-  margin-right: 200px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -449,8 +467,15 @@ li {
   position: relative;
   bottom: 40px
 }
+.bottom-header__burger-box {
+  cursor: pointer;
+  display: none
+}
 .bottom-header__menu {
   font-size: 18px
+}
+.bottom-header__burger-box {
+  margin: 10px 20px
 }
 .bottom-header__list {
   padding: 0;
@@ -460,9 +485,38 @@ li {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap
 }
+@media screen and (max-width:950px) {
+  .bottom-header__menu {
+    top: 30px;
+    position: absolute;
+    display: none;
+    background-color: #708090
+  }
+  .bottom-header__list {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+  }
+  .bottom-header__menu-burger {
+    display: block
+  }
+  .bottom-header__burger-box {
+    display: block
+  }
+  .bottom-header__link:hover {
+    color: #000
+  }
+}
 .bottom-header__item {
   text-decoration: none;
-  margin: 25px
+  padding: 25px
 }
 .bottom-header__item a {
   white-space: nowrap;
@@ -480,6 +534,18 @@ li {
   width: auto;
   background: url(../images/dest/taste.jpg) no-repeat center/cover
 }
+@media screen and (max-width:950px) {
+  .taste .taste__text-left {
+    display: none
+  }
+  .taste .taste__button button {
+    margin-top: 200px
+  }
+  .taste h2 {
+    text-align: center;
+    font-size: 30px
+  }
+}
 .taste__box {
   padding-top: 150px
 }
@@ -492,11 +558,12 @@ li {
   justify-content: center
 }
 .taste__text-left {
+  line-height: 25px;
   position: relative;
   padding: 0 10px 15px 0
 }
 .taste__text-left p {
-  width: 330px;
+  max-width: 330px;
   text-align: right;
   border-right: 2px solid #f4f4f4;
   padding: 140px 20px 0 0;
@@ -556,7 +623,7 @@ li {
   right: 0;
   z-index: -1;
   width: auto;
-  height: 1350px;
+  height: 100%;
   background: url(../images/dest/center.jpg) no-repeat center/cover;
   -webkit-filter: opacity(30%);
   -moz-filter: opacity(30%);
@@ -568,6 +635,17 @@ li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex
+}
+@media screen and (max-width:880px) {
+  .about .about__text {
+    padding: 20px!important
+  }
+  .about .about__cracker-image {
+    display: none
+  }
+  .about .footer__right-link a span {
+    display: none
+  }
 }
 .about__cracker-image {
   position: relative;
@@ -591,6 +669,7 @@ li {
   filter: contrast(130%)
 }
 .about__box {
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -615,6 +694,7 @@ li {
   padding: 0 10px 15px 0
 }
 .about__box-text .about__text {
+  line-height: 25px;
   text-indent: 25px;
   padding: 30px 30px 70px 70px;
   max-width: 620px;
@@ -652,10 +732,52 @@ li {
   -ms-flex-align: center;
   align-items: center
 }
+@media screen and (max-width:950px) {
+  .constructor .constructor__line input {
+    width: 300px;
+    margin: 0 20px
+  }
+  .constructor .constructor__choose-button {
+    margin-left: 20px
+  }
+  .constructor .constructor__value {
+    text-align: center
+  }
+  .constructor .constructor__title {
+    margin: 10px 0 0
+  }
+}
+@media screen and (max-width:600px) {
+  .constructor .constructor__line input {
+    width: 150px;
+    margin: 0 20px
+  }
+  .constructor .constructor__line #show-popup {
+    width: 50px
+  }
+  .constructor .constructor__choose-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 20px
+  }
+  .constructor .constructor__choose-button button {
+    width: 180px;
+    font-size: 15px;
+    margin-left: 20px
+  }
+}
 .constructor__title {
   font-size: 48px;
   color: #333;
-  margin: 130px 0 70px
+  margin: 59px 0 22px
 }
 .constructor__value {
   width: 600px;
@@ -768,11 +890,12 @@ li {
   -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
+  width: 300px;
   height: 60px;
   border: 1px solid #ff4200;
   border-radius: 30px;
   color: #ff4200;
-  font-size: 24px;
+  font-size: 25px;
   outline: 0;
   background: 0 0
 }
@@ -790,7 +913,7 @@ li {
 .constructor__add {
   -ms-flex-item-align: end;
   align-self: flex-end;
-  margin: 0 30px 60px 0
+  margin: 2px 30px 14px 0
 }
 .constructor__add button {
   cursor: pointer;
@@ -857,14 +980,37 @@ li {
   width: auto;
   background: url(../images/dest/footer-img.jpg) no-repeat center/cover
 }
+@media screen and (max-width:950px) {
+  .footer .footer__right-linkNone {
+    display: none
+  }
+  .footer .footer__center {
+    margin: 10px
+  }
+  .footer .footer__center p {
+    display: none
+  }
+  .footer .footer__left-number {
+    display: none
+  }
+  .footer .conmed {
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center
+  }
+}
 .footer__box {
   padding-top: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap
+}
+.footer__left {
+  margin: 10px
 }
 .footer__left a {
   display: -webkit-box;
@@ -882,7 +1028,7 @@ li {
   font-family: Lato,sans-serif
 }
 .footer__center {
-  margin: 0 100px
+  margin: 10px
 }
 .footer__center a {
   display: -webkit-box;
@@ -900,6 +1046,9 @@ li {
   color: #fff;
   font-size: 14px;
   font-family: Lato,sans-serif
+}
+.footer__right {
+  margin: 10px
 }
 .footer__right .footer__right-linkBox {
   display: -webkit-box;
