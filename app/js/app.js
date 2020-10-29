@@ -35,7 +35,7 @@ let burgerMenu = document.querySelector('.bottom-header__menu');
 
 
 body.addEventListener('click', function(e){
-    if(e.target ==== document.querySelector('.choicepopup')){
+    if(e.target === document.querySelector('.choicepopup')){
         return
     }
 

@@ -748,7 +748,7 @@ li {
   top: 0;
   left: -30px;
   min-height: 100%;
-  width: 100%;
+  width: 100vw;
   content: '';
   z-index: -1;
   -webkit-transform: translateX(30px);
@@ -775,7 +775,7 @@ li {
   -ms-flex-align: center;
   align-items: center
 }
-@media screen and (max-width:950px) {
+@media screen and (max-width:1000px) {
   .constructor .constructor__line input {
     width: 300px;
     margin: 0 20px
@@ -813,6 +813,11 @@ li {
     width: 180px;
     font-size: 15px;
     margin-left: 20px
+  }
+  .constructor .about__box-text:after {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px)
   }
 }
 .constructor__title {
