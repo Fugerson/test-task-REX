@@ -269,6 +269,9 @@ li {
   .about__box-text .about__text {
     font-size: 14px!important
   }
+  .header .header__top-in {
+    margin-bottom: 30px
+  }
 }
 .popupDetaols {
   display: none;
@@ -759,6 +762,7 @@ li {
   position: relative;
   z-index: 3;
   bottom: 50px;
+  right: 10px;
   font-family: Kristi,sans-serif;
   font-size: 72px;
   color: #0d0c0c
@@ -812,7 +816,7 @@ li {
   .constructor .constructor__choose-button button {
     width: 180px;
     font-size: 15px;
-    margin-left: 20px
+    margin: 0 20px 0 20px
   }
   .constructor .about__box-text:after {
     -webkit-transform: translateX(30px);

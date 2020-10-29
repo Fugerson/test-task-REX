@@ -102,6 +102,9 @@ li{
 
         font-size: 14px !important;
     }
+    .header .header__top-in{
+        margin-bottom: 30px;
+    }
 }
 
 //popapDetails
@@ -606,7 +609,7 @@ li{
                 position: relative;
                 z-index: 3;
                 bottom: 50px;
-
+                right: 10px;
                 font-family: 'Kristi', sans-serif;
                 font-size: 72px;
                 color: #0d0c0c;
@@ -659,12 +662,13 @@ li{
             button{
                 width: 180px;
                 font-size: 15px;
-                margin-left: 20px;
+                margin: 0px 20px 0 20px;
             }
         }
         .about__box-text:after {
             transform: translateX(30px);
-		}
+        }
+
     }
     &__title {
         font-size: 48px;

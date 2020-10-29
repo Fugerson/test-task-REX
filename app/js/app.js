@@ -85,6 +85,7 @@ function chengeValSesame(e){
     }
 };
 function chengeValWheat(e){
+    console.log(1)
     Wheat = +e.target.value
 
     if(+Soydean + +Sesame + +Wheat <= 100){
