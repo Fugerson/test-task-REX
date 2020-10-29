@@ -250,6 +250,9 @@ li {
   justify-content: space-between
 }
 @media screen and (max-width:500px) {
+  .constructor__percent {
+    font-size: 14px!important
+  }
   .item__menu-top {
     margin: 25px 10px!important
   }
@@ -660,9 +663,8 @@ li {
   right: 0;
   z-index: -1;
   width: auto;
-  height: 1600px;
+  height: 1350px;
   background: url(../images/dest/center.jpg) no-repeat center/cover;
-  background-size: 100%;
   -webkit-filter: opacity(30%);
   -moz-filter: opacity(30%);
   -o-filter: opacity(30%);
@@ -745,10 +747,13 @@ li {
   position: absolute;
   top: 0;
   left: -30px;
-  height: 100%;
-  width: 100vw;
+  min-height: 100%;
+  width: 100%;
   content: '';
-  z-index: -1
+  z-index: -1;
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px)
 }
 .about__logo a {
   position: relative;
@@ -778,11 +783,9 @@ li {
   .constructor .constructor__choose-button {
     margin-left: 20px
   }
-  .constructor .constructor__value {
-    text-align: center
-  }
   .constructor .constructor__title {
-    margin: 10px 0 0
+    margin: 10px 0 0;
+    text-align: center
   }
 }
 @media screen and (max-width:600px) {
@@ -818,7 +821,6 @@ li {
   margin: 59px 0 22px
 }
 .constructor__value {
-  width: 600px;
   font-family: Lato,sans-serif;
   font-size: 24px;
   color: #0d0c0c;

@@ -1,5 +1,5 @@
 //body
-let body = document.querySelector('body')
+let body = document.querySelector('body');
 
 // popup top haed
 let popupHead = document.querySelector('.popupDetaols');
@@ -34,21 +34,19 @@ let currentValue = document.querySelector('.constructor__current-value');
 let burgerMenu = document.querySelector('.bottom-header__menu');
 
 
-
 body.addEventListener('click', function(e){
-    if(e.target == document.querySelector('.choicepopup')){
+    if(e.target ==== document.querySelector('.choicepopup')){
         return
     }
 
     popup.style.display = "none"
     burgerMenu.style.display = "none"
-}, true)
+}, true);
 
 // menu burger
 function showMenuBurger(){
     burgerMenu.style.display = "block"
-}
-
+};
 
 //constructor
 let Soydean = 0,
@@ -72,8 +70,7 @@ function chengeValSoydean(e){
         e.path[0].value = a
         Soydean = a
     }
-
-}
+};
 function chengeValSesame(e){
     Sesame = +e.target.value
 
@@ -86,7 +83,7 @@ function chengeValSesame(e){
         e.path[0].value = b
         Sesame = b
     }
-}
+};
 function chengeValWheat(e){
     Wheat = +e.target.value
 
@@ -98,14 +95,14 @@ function chengeValWheat(e){
         e.path[0].value = c
         Wheat = c
     }
-}
+};
 
 function chengeValCorn(e){
     Corn = +e.target.value
     inputCorn.value = +e.target.value
     perCorn.innerHTML = e.target.value
     alignValue(e.target.value)
-}
+};
 
 function alignValue(){
 
@@ -116,12 +113,11 @@ function alignValue(){
         perCorn.innerHTML = fullValue - ollSeed
         inputCorn.value = fullValue - ollSeed
     }
-}
-
+};
 
 choose.addEventListener('click', function(e){
     popup.style.display = "flex"
-})
+});
 
 let checkAddSize = false,
     sizeValue = "",
@@ -140,7 +136,7 @@ choicepopupSmall.addEventListener('click', function(e){
         choicepopupSmall.classList.add('active')
         popup.style.display = "none"
 
-})
+});
 choicepopupMedium.addEventListener('click', function(e){
     sizeValue = '10'
     sizeCost = '9'
@@ -151,7 +147,7 @@ choicepopupMedium.addEventListener('click', function(e){
     choicepopupLarge.classList.remove('active');
     choicepopupMedium.classList.add('active')
         popup.style.display = "none"
-})
+});
 choicepopupLarge.addEventListener('click', function(e){
     sizeValue = '100'
     sizeCost = '99'
@@ -162,21 +158,19 @@ choicepopupLarge.addEventListener('click', function(e){
     choicepopupSmall.classList.remove('active');
     choicepopupLarge.classList.add('active')
         popup.style.display = "none"
-})
-
-
+});
 
 //add item
     cart.addEventListener('mouseenter', function(e){
     e.target.innerHTML = 'ADD TO CART'
-    })
+    });
     
     cart.addEventListener('mouseout', function(e){
     e.target.innerHTML = '+'
-    })
+    });
     
     cart.addEventListener('click', function(e){
-        if(checkAddSize == false){
+        if(checkAddSize === false){
             return
         }
        
@@ -188,8 +182,6 @@ choicepopupLarge.addEventListener('click', function(e){
 
         let p = +totalHeadTop.innerHTML + +sizeCost;
         totalHeadTop.innerHTML = String(p);
-
-        
 
         popupHeadBoxItams.innerHTML += `
     <div class="popupDetaols__item">
@@ -209,23 +201,19 @@ choicepopupLarge.addEventListener('click', function(e){
         <div class="popupDetaols__item-button"><button onclick="removeItemSeen(event)">x</button></div>
     </div>
     `
-    })
-
+    });
 
 // popup top haed
-
-
 function showPopupHead(e){
     e.stopPropagation()
     popupHead.style.display = "flex";
-}
+};
 
 function closePopupHead(event){
     popupHead.style.display = "none";
-}
+};
 
 // popup item head
-
 function removeItemSeen(e){
 
     calcItems.textContent = +calcItems.textContent - 1
@@ -235,4 +223,4 @@ function removeItemSeen(e){
     totalHeadTop.innerHTML = +totalHeadTop.innerHTML - +e.path[2].childNodes[3].childNodes[5].innerHTML;
 
     e.path[2].remove()
-}
+};
