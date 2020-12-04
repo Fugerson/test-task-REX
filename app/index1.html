@@ -26,13 +26,13 @@
                     </div>
                     <div class="details-popap">
                         <div class="top-header__details item__menu-top">
-                            <button class="datails-header__title">DETAOLS 
+                            <button onclick="showPopupHead(event)" class="datails-header__title">DETAOLS 
                                 <img class="datails-header__icon" src="images/dest/arreyHeader.png">
                             </button>
                         </div>
                         <div class="popupDetaols">
                             <div class="popupDetaols__close-button">
-                                <button><img src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/></button>
+                                <button onclick="closePopupHead()"><img src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/></button>
                             </div>
                             <div class="popupDetaols__box">
                                 <div class="popupDetaols__top-img">
@@ -70,13 +70,13 @@
                         </a>
                     </div>
                     
-                    <button class="bottom-header__burger-box">
+                    <button onclick="showMenuBurger()" class="bottom-header__burger-box">
                         <img class="bottom-header__menu-burger" src="https://img.icons8.com/color/48/000000/menu.png"/>
                     </button>
                     <div class="bottom-header__menu">
                         <ul class="bottom-header__list">
                             <li class="bottom-header__item">
-                                <a href="#" class="bottom-header__link">HOME</a>
+                                <a href="#" class="bottom-header__link bottom-header__link_active">HOME</a>
                             </li>
                             <li class="bottom-header__item">
                                 <a href="#" class="bottom-header__link">ABOUT US</a>
@@ -154,7 +154,7 @@
                                     <img src="/images/dest/constructor_lineImg-soydean.png" alt="">
                                 </div>
                                 <div class="constructor__line">
-                                    <input class='constructor__line-soiden' type="range" step="10" min="0" max="100" value="0">
+                                    <input oninput="chengeValSoydean(event)" type="range" step="10" min="0" max="100" value="0">
                                 </div>
                                 <div class="constructor__percent"><span class="constructor__percent-soydean">0</span>%</div>
                             </div>
@@ -165,7 +165,7 @@
                                     <img src="/images/dest/constructor_lineImg-sesame.png" alt="">
                                 </div>
                                 <div class="constructor__line">
-                                    <input class='constructor__line-sesame' type="range" step="10" min="0" max="100" value="0">
+                                    <input  oninput="chengeValSesame(event)" type="range" step="10" min="0" max="100" value="0">
                                 </div>
                                 <div class="constructor__percent"><span class="constructor__percent-sesame">0</span>%</div>
                             </div>
@@ -176,7 +176,7 @@
                                     <img src="/images/dest/constructor_lineImg-wheat.png" alt="">
                                 </div>
                                 <div class="constructor__line">
-                                    <input class='constructor__line-wheat' type="range" step="10" min="0" max="100" value="0">
+                                    <input oninput="chengeValWheat(event)" type="range" step="10" min="0" max="100" value="0">
                                 </div>
                                 <div class="constructor__percent"><span class="constructor__percent-wheat">0</span>%</div>
                             </div>
@@ -187,7 +187,7 @@
                                     <img src="/images/dest/constructor_lineImg-corn.png" alt="">
                                 </div>
                                 <div class="constructor__line">
-                                    <input class="constructor__input-corn" type="range" step="10" min="0" max="100" value="100">
+                                    <input oninput="chengeValCorn(event)" class="constructor__input-corn" type="range" step="10" min="0" max="100" value="100">
                                 </div>
                                 <div class="constructor__percent"><span  class="constructor__percent-corn">100</span>%</div>
                             </div>

@@ -1,227 +1,410 @@
-//body
-let body = document.querySelector('body');
 
-// popup top haed
-let popupHead = document.querySelector('.popupDetaols');
-let popupHeadBoxItams = document.querySelector('.popupDetaols__flex');
-let popupHeadBoxItam = document.querySelector('.popupDetaols__item');
+class Main {
+    constructor() {
+        this.body = document.querySelector('body');
+        this.popup = document.querySelector('.choicepopup');
 
-//popap bottom constructor
-let choose = document.querySelector('#show-popup');
-let chooseButtonSpan = document.querySelector('.choose__button-span');
-let popup = document.querySelector('.choicepopup');
-let choicepopupSmall = document.querySelector('.choicepopup__small');
-let choicepopupMedium = document.querySelector('.choicepopup__medium');
-let choicepopupLarge = document.querySelector('.choicepopup__large');
+        this.burgerMenu = document.querySelector('.bottom-header__burger-box');
+        this.burgerMenuList = document.querySelector('.bottom-header__menu');
+        this.burgerMenuLink = document.querySelectorAll('.bottom-header__link');
 
-// products
-let perSoydean = document.querySelector('.constructor__percent-soydean');
-let perSesame = document.querySelector('.constructor__percent-sesame');
-let perWheat = document.querySelector('.constructor__percent-wheat');
-let perCorn = document.querySelector('.constructor__percent-corn');
-let inputCorn = document.querySelector('.constructor__input-corn');
+        this.showAndHoverPopup = this.showAndHoverPopup.bind(this);
 
-//add cart
-let cart = document.querySelector('.constructor__add-button');
-
-//total
-let totalPopup = document.querySelector('.popupDetaols__bottom-total>span');
-let totalHeadTop = document.querySelector('.total-header__prise>span');
-let calcItems = document.querySelector('.header__ring-text');
-let currentValue = document.querySelector('.constructor__current-value');
-
-// burger menu
-let burgerMenu = document.querySelector('.bottom-header__menu');
-
-
-body.addEventListener('click', function(e){
-    if(e.target === document.querySelector('.choicepopup')){
-        return
+        this.attachEvents();
     }
 
-    popup.style.display = "none"
-    burgerMenu.style.display = "none"
-}, true);
 
 // menu burger
-function showMenuBurger(){
-    burgerMenu.style.display = "block"
-};
+        attachWatchburger = () =>{
+            
+        }
+
+        showMenuBurger = () => {
+            // console.log(1)
+            this.burgerMenuList.style.display = "block"
+        }
+
+    showAndHoverPopup(ev) {
+        
+        console.log(document.documentElement.clientWidth)
+        console.log(window.innerWidth)
+        if ( ev.target === document.querySelector('.choicepopup') ) {
+            return;
+        }
+
+        if ( ev.target === document.querySelector('.bottom-header__menu-burger') ) {
+            this.popup.style.display = "none";
+            this.burgerMenu.style.display = "none";
+        }
+        if(document.documentElement.clientWidth < 933){
+    
+            for(let i = 0;i < this.burgerMenuLink.length; i++){
+                if ( ev.target === this.burgerMenuLink[i]) {
+                    console.log(ev.target)
+                    this.burgerMenuList.style.display = "none"
+                    this.burgerMenu.style.display = "block";
+                    break;
+                }
+            }
+        }
+    }
+
+    attachEvents() {
+        this.body.addEventListener('click', (ev) => this.showAndHoverPopup(ev));
+        this.burgerMenu.addEventListener('click',  this.showMenuBurger);
+    }
+}
+
+class PopupHead {
+    constructor() {
+        this.popupHead = document.querySelector('.popupDetaols');
+        this.popupHeadBoxItams = document.querySelector('.popupDetaols__flex');
+        this.popupHeadBoxItam = document.querySelector('.popupDetaols__item');
+        this.detailsHeaderTitle = document.querySelector('.datails-header__title');
+        this.detailsHeaderTitleButton = document.querySelector('.popupDetaols__close-button button');
+
+        // this.showPopupHead = this.showPopupHead.bind(this);
+        // this.closePopupHead = this.closePopupHead.bind(this);
+
+        this.attachEvents();
+        // this.init();
+    }
+
+    // popup top haed
+    showPopupHead = ev => {
+
+        ev.stopPropagation()
+        this.popupHead.style.display = "flex";
+    };
+
+    closePopupHead = () => this.popupHead.style.display = "none";
+
+    attachEvents() {
+        this.detailsHeaderTitle.addEventListener('click', this.showPopupHead);
+        this.detailsHeaderTitleButton.addEventListener('click', this.closePopupHead);
+    }
+
+
+    init () {
+        // do something when class would be created
+    }
+}
+
+class PopupButtonConstructor {
+    constructor() {
+        this.choose = document.querySelector('#show-popup');
+        this.chooseButtonSpan = document.querySelector('.choose__button-span');
+        this.popup = document.querySelector('.choicepopup');
+        this.choicepopupSmall = document.querySelector('.choicepopup__small');
+        this.choicepopupMedium = document.querySelector('.choicepopup__medium');
+        this.choicepopupLarge = document.querySelector('.choicepopup__large');
+        this.checkAddSize = false;
+        this.sizeValue = "";
+        this.sizeCost = "";
+
+        this.attachEvents();
+    }
+
+    showChousePopup = () => this.popup.style.display = "flex";
+
+    changePopupSmallEvent = ev => {
+        this.sizeValue = '1';
+        this.sizeCost = '1.5';
+        this.checkAddSize = true;
+
+        this.chooseButtonSpan.innerHTML = ev.path[0].innerHTML;
+        this.choicepopupMedium.classList.remove('active');
+        this.choicepopupLarge.classList.remove('active');
+        this.choicepopupSmall.classList.add('active');
+        this.popup.style.display = "none";
+    }
+
+    choicePopupMediumEvent = ev => {
+        this.sizeValue = '10';
+        this.sizeCost = '9';
+        this.checkAddSize = true;
+
+        this.chooseButtonSpan.innerHTML = ev.path[0].innerHTML;
+        this.choicepopupSmall.classList.remove('active');
+        this.choicepopupLarge.classList.remove('active');
+        this.choicepopupMedium.classList.add('active');
+        this.popup.style.display = "none";
+    }
+
+    choicePopupLargeEvent = ev => {
+        this.sizeValue = '100';
+        this.sizeCost = '99';
+        this.checkAddSize = true;
+
+        this.chooseButtonSpan.innerHTML = ev.path[0].innerHTML;
+        this.choicepopupMedium.classList.remove('active');
+        this.choicepopupSmall.classList.remove('active');
+        this.choicepopupLarge.classList.add('active');
+        this.popup.style.display = "none";
+    }
+
+    attachEvents() {
+        this.choose.addEventListener('click', this.showChousePopup);
+
+        //change pack
+        this.choicepopupSmall.addEventListener('click', this.changePopupSmallEvent);
+
+        this.choicepopupMedium.addEventListener('click', this.choicePopupMediumEvent);
+
+        this.choicepopupLarge.addEventListener('click', this.choicePopupLargeEvent);
+    }
+}
+
+class Products {
+    constructor() {
+        // elements which I call events
+        this.inputSoiden = document.querySelector('.constructor__line-soiden');
+        this.inputSesame = document.querySelector('.constructor__line-sesame');
+        this.inputWheat = document.querySelector('.constructor__line-wheat');
+        this.inputCorn = document.querySelector('.constructor__input-corn');
+        // elements where I write
+        this.outputPerSoydean = document.querySelector('.constructor__percent-soydean');
+        this.outputPerSesame = document.querySelector('.constructor__percent-sesame');
+        this.outputPerWheat = document.querySelector('.constructor__percent-wheat');
+        this.outputPerCorn = document.querySelector('.constructor__percent-corn');
+
+        // PUT BELOW VARIABLES TO THE OBJECT THAT MAKES IT CLEARLY FOR UNDERSTANDING
+        this.Soydean = 0,
+        this.Sesame = 0,
+        this.Wheat = 0,
+        this.Corn = 0,
+        this.a = 0,
+        this.b = 0,
+        this.c = 0,
+        this.w = 0;
+
+        this.attachEvents();
+        this.alignValue();
+    }
+
+    chengeValSoydean = ev => { 
+        this.Soydean = +ev.target.value
+    
+        if(+this.Soydean + +this.Sesame + +this.Wheat <= 100){ 
+    
+            this.outputPerSoydean.innerHTML = ev.target.value
+            this.a = ev.target.value
+            this.alignValue(ev.target.value)
+        } else{
+            ev.path[0].value = this.a
+            this.Soydean = this.a
+        }
+    };
+
+    chengeValSesame = ev => {
+        this.Sesame = +ev.target.value
+        console.log(11)
+        if(+this.Soydean + +this.Sesame + +this.Wheat <= 100){
+    
+        this.outputPerSesame.innerHTML = ev.target.value
+        this.b = ev.target.value
+        this.alignValue(ev.target.value)
+        } else{
+            ev.path[0].value = this.b
+            this.Sesame = this.b
+        }
+    };
+    
+    chengeValWheat = ev => {
+        this.Wheat = +ev.target.value
+    
+        if(+this.Soydean + +this.Sesame + +this.Wheat <= 100){
+        this.outputPerWheat.innerHTML = ev.target.value
+        this.c = ev.target.value
+        this.alignValue(ev.target.value)
+        } else{
+            ev.path[0].value = this.c
+            this.Wheat = this.c
+        }
+    };
+    
+    chengeValCorn = ev => {
+        this.Corn = +ev.target.value
+        this.inputCorn.value = +ev.target.value
+        this.outputPerCorn.innerHTML = ev.target.value
+        this.alignValue(ev.target.value)
+    };
+    
+    alignValue = () => {
+        this.ollSeed = this.Soydean + this.Sesame + this.Wheat
+        const fullValue = 100;
+    
+        if(+this.ollSeed <= fullValue){
+            this.outputPerCorn.innerHTML = fullValue - this.ollSeed
+            this.inputCorn.value = fullValue - this.ollSeed
+        }
+    };
+
+    attachEvents() {
+        this.inputSoiden.addEventListener('input', this.chengeValSoydean);
+        this.inputSesame.addEventListener('input', this.chengeValSesame);
+        this.inputWheat.addEventListener('input', this.chengeValWheat);
+ 
+    }
+}
+class Cart extends PopupButtonConstructor{
+    constructor(){
+        super()
+        //add plusCart
+        this.plusCart = document.querySelector('.constructor__add-button');
+        //total
+        this.totalPopup = document.querySelector('.popupDetaols__bottom-total>span');
+        this.totalHeadTop = document.querySelector('.total-header__prise>span');
+        this.calcItems = document.querySelector('.header__ring-text');
+        this.currentValue = document.querySelector('.constructor__current-value');
+
+
+        this.outputPerSoydean = document.querySelector('.constructor__percent-soydean');
+        this.outputPerSesame = document.querySelector('.constructor__percent-sesame');
+        this.outputPerWheat = document.querySelector('.constructor__percent-wheat');
+        this.outputPerCorn = document.querySelector('.constructor__percent-corn');
+
+
+        this.popupHeadBoxItams = document.querySelector('.popupDetaols__flex');
+
+
+        
+        this.attachEvents();
+    }
+    showButtonAddCartText = (e) => {
+        e.target.innerHTML = 'ADD TO cart'
+    }
+    hideButtonAddCartText = (e) => {
+        e.target.innerHTML = '+'
+    }
+    removeItemSeen = (e) => {
+        console.log(11111)
+        console.log(e)
+        this.calcItems.textContent = +this.calcItems.textContent - 1
+    
+        this.currentValue.textContent = +this.currentValue.textContent - +e.path[2].childNodes[3].childNodes[5].innerHTML;
+        this.totalPopup.textContent = +this.totalPopup.textContent - +e.path[2].childNodes[3].childNodes[5].innerHTML;
+        this.totalHeadTop.innerHTML = +this.totalHeadTop.innerHTML - +e.path[2].childNodes[3].childNodes[5].innerHTML;
+    
+        e.path[2].remove()
+    };
+    AddButtonAddCartText = (e) => {
+
+            console.log(this.checkAddSize)
+            if(this.checkAddSize === false){
+                return
+            }
+            
+            this.calcItems.textContent = +this.calcItems.textContent + 1
+        
+            this.currentValue.textContent = +this.currentValue.textContent + +this.sizeCost;
+        
+            this.totalPopup.textContent = +this.totalPopup.textContent + +this.sizeCost;
+        
+            let p = +this.totalHeadTop.innerHTML + +this.sizeCost;
+            this.totalHeadTop.innerHTML = String(p);
+        
+            this.popupHeadBoxItams.innerHTML += 
+            `
+                <div class="popupDetaols__item">
+                    <div class="popupDetaols__item-image">
+                        <img src="/images/dest/calc-blaсk.png" alt="">
+                    </div>
+                    <div class="popupDetaols__item-span">
+                        <div class="popupDetaols__box-spanPre">
+                            <span><span class="popupDetaols__item-perSoydean popupDetaols__item-pre" >${this.outputPerSoydean.innerHTML}</span>%</span>
+                            <span><span class="popupDetaols__item-perSesame popupDetaols__item-pre" >${this.outputPerSesame.innerHTML}</span>%</span>
+                            <span><span class="popupDetaols__item-perWheat popupDetaols__item-pre" >${this.outputPerWheat.innerHTML}</span>%</span>
+                            <span><span class="popupDetaols__item-perCorn popupDetaols__item-pre" >${this.outputPerCorn.innerHTML}</span>%</span>
+                        </div>
+                    <span class="popupDetaols__item-weight">${this.sizeValue}</span>KG
+                    <span class="popupDetaols__item-cost">${this.sizeCost}</span>€    
+                    </div>
+                    <div class="popupDetaols__item-button"><button>x</button></div>
+                </div>
+            `
+            console.log(1)
+            this.popupDetaolsItemButton = document.querySelectorAll('.popupDetaols__item-button>button');
+            console.log( this.popupDetaolsItemButton)
+            for(let i = 0; i <  this.popupDetaolsItemButton.length; i++){
+                this.popupDetaolsItemButton[i].addEventListener('click', this.removeItemSeen);
+            }
+            
+    }
+
+    attachEvents = (e) =>{
+        this.plusCart.addEventListener('mouseenter', this.showButtonAddCartText);
+        this.plusCart.addEventListener('mouseout', this.hideButtonAddCartText);
+        this.plusCart.addEventListener('click', this.AddButtonAddCartText);
+
+    }
+}
+window.addEventListener('load', () => {
+    new Main();
+    new PopupHead();
+    new PopupButtonConstructor();
+    new Products();
+    new Cart();
+    console.log('call last class here');
+})
+
+
 
 //constructor
-let Soydean = 0,
-Sesame = 0,
-Wheat = 0,
-Corn = 0,
-a = 0,
-b = 0,
-c = 0,
-w = 0;
-
-function chengeValSoydean(e){ 
-    Soydean = +e.target.value
-
-    if(+Soydean + +Sesame + +Wheat <= 100){ 
-
-        perSoydean.innerHTML = e.target.value
-        a = e.target.value
-        alignValue(e.target.value)
-    } else{
-        e.path[0].value = a
-        Soydean = a
-    }
-};
-function chengeValSesame(e){
-    Sesame = +e.target.value
-
-    if(+Soydean + +Sesame + +Wheat <= 100){
-
-    perSesame.innerHTML = e.target.value
-    b = e.target.value
-    alignValue(e.target.value)
-    } else{
-        e.path[0].value = b
-        Sesame = b
-    }
-};
-function chengeValWheat(e){
-    console.log(1)
-    Wheat = +e.target.value
-
-    if(+Soydean + +Sesame + +Wheat <= 100){
-    perWheat.innerHTML = e.target.value
-    c = e.target.value
-    alignValue(e.target.value)
-    } else{
-        e.path[0].value = c
-        Wheat = c
-    }
-};
-
-function chengeValCorn(e){
-    Corn = +e.target.value
-    inputCorn.value = +e.target.value
-    perCorn.innerHTML = e.target.value
-    alignValue(e.target.value)
-};
-
-function alignValue(){
-
-    ollSeed = Soydean + Sesame + Wheat
-    const fullValue = 100;
-
-    if(+ollSeed <= fullValue){
-        perCorn.innerHTML = fullValue - ollSeed
-        inputCorn.value = fullValue - ollSeed
-    }
-};
-
-choose.addEventListener('click', function(e){
-    popup.style.display = "flex"
-});
-
-let checkAddSize = false,
-    sizeValue = "",
-    sizeCost = ""
-
-//change pack
-
-choicepopupSmall.addEventListener('click', function(e){
-        sizeValue = '1'
-        sizeCost = '1.5'
-         checkAddSize = true
-
-        chooseButtonSpan.innerHTML = e.path[0].innerHTML
-        choicepopupMedium.classList.remove('active');
-        choicepopupLarge.classList.remove('active');
-        choicepopupSmall.classList.add('active')
-        popup.style.display = "none"
-
-});
-choicepopupMedium.addEventListener('click', function(e){
-    sizeValue = '10'
-    sizeCost = '9'
-    checkAddSize = true
-
-    chooseButtonSpan.innerHTML = e.path[0].innerHTML
-    choicepopupSmall.classList.remove('active');
-    choicepopupLarge.classList.remove('active');
-    choicepopupMedium.classList.add('active')
-        popup.style.display = "none"
-});
-choicepopupLarge.addEventListener('click', function(e){
-    sizeValue = '100'
-    sizeCost = '99'
-    checkAddSize = true
-
-    chooseButtonSpan.innerHTML = e.path[0].innerHTML
-    choicepopupMedium.classList.remove('active');
-    choicepopupSmall.classList.remove('active');
-    choicepopupLarge.classList.add('active')
-        popup.style.display = "none"
-});
 
 //add item
-    cart.addEventListener('mouseenter', function(e){
-    e.target.innerHTML = 'ADD TO CART'
-    });
+// plusCart.addEventListener('mouseenter', function(e){
+// e.target.innerHTML = 'ADD TO cart'
+// });
+
+// plusCart.addEventListener('mouseout', function(e){
+// e.target.innerHTML = '+'
+// });
+
+// plusCart.addEventListener('click', function(e){
+//     console.log(checkAddSize)
+//     if(checkAddSize === false){
+//         return
+//     }
     
-    cart.addEventListener('mouseout', function(e){
-    e.target.innerHTML = '+'
-    });
-    
-    cart.addEventListener('click', function(e){
-        if(checkAddSize === false){
-            return
-        }
-       
-        calcItems.textContent = +calcItems.textContent + 1
+//     calcItems.textContent = +calcItems.textContent + 1
 
-        currentValue.textContent = +currentValue.textContent + +sizeCost;
+//     currentValue.textContent = +currentValue.textContent + +sizeCost;
 
-        totalPopup.textContent = +totalPopup.textContent + +sizeCost;
+//     totalPopup.textContent = +totalPopup.textContent + +sizeCost;
 
-        let p = +totalHeadTop.innerHTML + +sizeCost;
-        totalHeadTop.innerHTML = String(p);
+//     let p = +totalHeadTop.innerHTML + +sizeCost;
+//     totalHeadTop.innerHTML = String(p);
 
-        popupHeadBoxItams.innerHTML += `
-    <div class="popupDetaols__item">
-        <div class="popupDetaols__item-image">
-            <img src="/images/dest/calc-blaсk.png" alt="">
-        </div>
-        <div class="popupDetaols__item-span">
-            <div class="popupDetaols__box-spanPre">
-                <span><span class="popupDetaols__item-perSoydean popupDetaols__item-pre" >${perSoydean.innerHTML}</span>%</span>
-                <span><span class="popupDetaols__item-perSesame popupDetaols__item-pre" >${perSesame.innerHTML}</span>%</span>
-                <span><span class="popupDetaols__item-perWheat popupDetaols__item-pre" >${perWheat.innerHTML}</span>%</span>
-                <span><span class="popupDetaols__item-perCorn popupDetaols__item-pre" >${perCorn.innerHTML}</span>%</span>
-            </div>
-        <span class="popupDetaols__item-weight">${sizeValue}</span>KG
-        <span class="popupDetaols__item-cost">${sizeCost}</span>€    
-        </div>
-        <div class="popupDetaols__item-button"><button onclick="removeItemSeen(event)">x</button></div>
-    </div>
-    `
-    });
-
-// popup top haed
-function showPopupHead(e){
-    e.stopPropagation()
-    popupHead.style.display = "flex";
-};
-
-function closePopupHead(event){
-    popupHead.style.display = "none";
-};
+//     popupHeadBoxItams.innerHTML += 
+//     `
+//         <div class="popupDetaols__item">
+//             <div class="popupDetaols__item-image">
+//                 <img src="/images/dest/calc-blaсk.png" alt="">
+//             </div>
+//             <div class="popupDetaols__item-span">
+//                 <div class="popupDetaols__box-spanPre">
+//                     <span><span class="popupDetaols__item-perSoydean popupDetaols__item-pre" >${perSoydean.innerHTML}</span>%</span>
+//                     <span><span class="popupDetaols__item-perSesame popupDetaols__item-pre" >${perSesame.innerHTML}</span>%</span>
+//                     <span><span class="popupDetaols__item-perWheat popupDetaols__item-pre" >${perWheat.innerHTML}</span>%</span>
+//                     <span><span class="popupDetaols__item-perCorn popupDetaols__item-pre" >${perCorn.innerHTML}</span>%</span>
+//                 </div>
+//             <span class="popupDetaols__item-weight">${sizeValue}</span>KG
+//             <span class="popupDetaols__item-cost">${sizeCost}</span>€    
+//             </div>
+//             <div class="popupDetaols__item-button"><button onclick="removeItemSeen(event)">x</button></div>
+//         </div>
+//     `
+// });
 
 // popup item head
-function removeItemSeen(e){
+// function removeItemSeen(e){
 
-    calcItems.textContent = +calcItems.textContent - 1
+//     calcItems.textContent = +calcItems.textContent - 1
 
-    currentValue.textContent = +currentValue.textContent - +e.path[2].childNodes[3].childNodes[5].innerHTML;
-    totalPopup.textContent = +totalPopup.textContent - +e.path[2].childNodes[3].childNodes[5].innerHTML;
-    totalHeadTop.innerHTML = +totalHeadTop.innerHTML - +e.path[2].childNodes[3].childNodes[5].innerHTML;
+//     currentValue.textContent = +currentValue.textContent - +e.path[2].childNodes[3].childNodes[5].innerHTML;
+//     totalPopup.textContent = +totalPopup.textContent - +e.path[2].childNodes[3].childNodes[5].innerHTML;
+//     totalHeadTop.innerHTML = +totalHeadTop.innerHTML - +e.path[2].childNodes[3].childNodes[5].innerHTML;
 
-    e.path[2].remove()
-};
+//     e.path[2].remove()
+// };
