@@ -534,7 +534,7 @@ li {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap
 }
-@media screen and (max-width:950px) {
+@media screen and (max-width:966px) {
   .bottom-header__menu {
     top: 30px;
     position: absolute;
