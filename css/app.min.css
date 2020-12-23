@@ -553,15 +553,12 @@ li {
     -ms-flex-direction: column;
     flex-direction: column
   }
-  .bottom-header__menu-burger {
-    display: block
-  }
   .bottom-header__burger-box {
     display: block
   }
   .bottom-header__link:hover {
     color: #000;
-    padding: 0 10px 15px;
+    padding-bottom: 15px;
     border-bottom: 4px solid #ff4200
   }
 }
@@ -581,7 +578,7 @@ li {
   width: auto;
   background: url(../images/dest/taste.jpg) no-repeat center/cover
 }
-@media screen and (max-width:950px) {
+@media screen and (max-width:1000px) {
   .taste .taste__text-left {
     display: none
   }
@@ -659,9 +656,9 @@ li {
   letter-spacing: 2px;
   color: #cc2440;
   background: #fff;
-  -webkit-transition: color .1s,background .2s;
-  -o-transition: color .1s,background .2s;
-  transition: color .1s,background .2s
+  -webkit-transition: color .01s,background .01s;
+  -o-transition: color .01s,background .01s;
+  transition: color .01s,background .01s
 }
 .section-Center::before {
   content: "";
@@ -827,6 +824,17 @@ li {
     -ms-transform: translateX(30px);
     transform: translateX(30px)
   }
+  .constructor .constructor__choose-button button {
+    width: 150px;
+    font-size: 14px;
+    height: 30px;
+    white-space: nowrap
+  }
+  .constructor .constructor__add button {
+    width: 40px;
+    height: 40px;
+    font-size: 14px
+  }
 }
 .constructor__title {
   font-size: 48px;
@@ -943,17 +951,15 @@ li {
   -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
-  width: 370px;
+  max-width: 370px;
   height: 60px;
   border: 1px solid #ff4200;
   border-radius: 30px;
   color: #ff4200;
   font-size: 25px;
   outline: 0;
-  background: 0 0
-}
-.constructor__choose-button button span {
-  margin-left: 25px
+  background: 0 0;
+  padding: 0 10px
 }
 .constructor__choose-button button .choose-img {
   margin: 0 25px

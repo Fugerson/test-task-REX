@@ -2,6 +2,7 @@
 class Main {
     constructor() {
         this.body = document.querySelector('body');
+        // this.window = document.querySelector('window');
         this.popup = document.querySelector('.choicepopup');
 
         this.burgerMenu = document.querySelector('.bottom-header__burger-box');
@@ -9,6 +10,9 @@ class Main {
         this.burgerMenuLink = document.querySelectorAll('.bottom-header__link');
 
         this.showAndHoverPopup = this.showAndHoverPopup.bind(this);
+
+        this.checkPopupMenuHead = true;
+
 
         this.attachEvents();
     }
@@ -20,14 +24,25 @@ class Main {
         }
 
         showMenuBurger = () => {
-            // console.log(1)
-            this.burgerMenuList.style.display = "block"
+            console.log(this.checkPopupMenuHead)
+            if(this.checkPopupMenuHead){
+                this.burgerMenuList.style.display = "block";
+                this.checkPopupMenuHead = false;
+            } else {
+                this.burgerMenuList.style.display = "none";
+                this.checkPopupMenuHead = true;
+            }
+
+            
         }
 
     showAndHoverPopup(ev) {
-        
-        console.log(document.documentElement.clientWidth)
-        console.log(window.innerWidth)
+
+        // const mediaQuery = window.matchMedia('(min-width: 768px)')
+        //     if (mediaQuery.matches) {
+        //     console.log(1)
+        //     }
+
         if ( ev.target === document.querySelector('.choicepopup') ) {
             return;
         }
@@ -36,22 +51,31 @@ class Main {
             this.popup.style.display = "none";
             this.burgerMenu.style.display = "none";
         }
-        if(document.documentElement.clientWidth < 933){
-    
-            for(let i = 0;i < this.burgerMenuLink.length; i++){
-                if ( ev.target === this.burgerMenuLink[i]) {
-                    console.log(ev.target)
-                    this.burgerMenuList.style.display = "none"
-                    this.burgerMenu.style.display = "block";
-                    break;
-                }
-            }
+        if(document.documentElement.clientWidth < 950){
+
+            console.log(document.documentElement.clientWidth)
+
+            this.burgerMenu.style.display = "block";
+            this.burgerMenuList.style.display = "none";
+
+        } else {
+            this.burgerMenu.style.display = "none";
+            this.burgerMenuList.style.display = "block";
         }
+    }
+    eventBurgerButton(e){
+        console.log(111)
+        this.burgerMenuList.style.display = "none";
+        this.checkPopupMenuHead = true;
     }
 
     attachEvents() {
-        this.body.addEventListener('click', (ev) => this.showAndHoverPopup(ev));
+        window.addEventListener('resize', (ev) => this.showAndHoverPopup(ev));
         this.burgerMenu.addEventListener('click',  this.showMenuBurger);
+
+        for(let i = 0;i < this.burgerMenuLink.length; i++){
+            this.burgerMenuLink[i].addEventListener('click', (ev) => this.eventBurgerButton(ev))
+        }
     }
 }
 
@@ -63,11 +87,9 @@ class PopupHead {
         this.detailsHeaderTitle = document.querySelector('.datails-header__title');
         this.detailsHeaderTitleButton = document.querySelector('.popupDetaols__close-button button');
 
-        // this.showPopupHead = this.showPopupHead.bind(this);
-        // this.closePopupHead = this.closePopupHead.bind(this);
 
         this.attachEvents();
-        // this.init();
+
     }
 
     // popup top haed
@@ -231,10 +253,11 @@ class Products {
     };
     
     alignValue = () => {
-        this.ollSeed = this.Soydean + this.Sesame + this.Wheat
+        this.ollSeed = +this.Soydean + +this.Sesame + +this.Wheat
+        console.log(this.ollSeed)
         const fullValue = 100;
     
-        if(+this.ollSeed <= fullValue){
+        if(this.ollSeed <= fullValue){
             this.outputPerCorn.innerHTML = fullValue - this.ollSeed
             this.inputCorn.value = fullValue - this.ollSeed
         }
